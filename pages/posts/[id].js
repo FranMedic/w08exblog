@@ -1,6 +1,6 @@
-import { useRouter } from "next/dist/client/router";
+import { useRouter } from "next/router";
 
-const postsID = ({ posts }) => {
+const PostsID = ({ posts }) => {
   const router = useRouter();
   if (router.isFallback) {
     return <h1>Loading....</h1>;
@@ -15,7 +15,7 @@ const postsID = ({ posts }) => {
   );
 };
 
-export default postsID;
+export default PostsID;
 
 export const getStaticPaths = async () => {
   const response = await fetch(
