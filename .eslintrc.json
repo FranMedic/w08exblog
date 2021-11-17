@@ -1,7 +1,16 @@
 {
   "root": true,
-  "extends": ["next/core-web-vitals"],
+  "env": { "jest": true },
+  "extends": ["next/core-web-vitals", "airbnb-base", "prettier"],
   "plugins": ["testing-library"],
+  "rules": {
+    "no-param-reassign": "off",
+    "no-plusplus": "off",
+    "no-restricted-syntax": "off",
+    "consistent-return": "off",
+    "no-debugger": "off",
+    "no-console": "off"
+  },
   "overrides": [
     // Only uses Testing Library lint rules in test files
     {
