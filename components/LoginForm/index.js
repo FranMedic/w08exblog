@@ -1,16 +1,20 @@
+import { useRouter } from "next/router";
 import { useState } from "react";
 
 const LoginForm = () => {
+  const router = useRouter();
   const initialValues = {
-    name: "",
-    avatar: "",
-    id: Date.now,
+    userName: "",
+    userAvatar: "",
   };
 
   const [userData, setUserData] = useState(initialValues);
+
   const userLogin = (event) => {
     event.preventDefault();
-    localStorage.setItem("user", JSON.stringify(userData));
+    const userId = Date.now;
+    localStorage.setItem("user", JSON.stringify({ ...userData, userId }));
+    router.push("/");
   };
 
   const onChangeData = (event) => {
@@ -26,14 +30,14 @@ const LoginForm = () => {
           <div className=" col-4 form-container">
             <form autoComplete="off" onSubmit={userLogin} noValidate>
               <div className="mb-3 row">
-                <label htmlFor="name" className="form-label">
+                <label htmlFor="userName" className="form-label">
                   Name
                 </label>
                 <input
                   type="text"
-                  id="name"
-                  placeholder="Name"
-                  value={userData.name}
+                  id="userName"
+                  placeholder="userName"
+                  value={userData.userName}
                   onChange={onChangeData}
                   required
                   className="mb-2 form-control"
@@ -41,14 +45,14 @@ const LoginForm = () => {
               </div>
 
               <div className="mb-3 row">
-                <label htmlFor="avatar" className="form-label">
+                <label htmlFor="userAvatar" className="form-label">
                   Avatar
                 </label>
                 <input
                   type="text"
-                  id="avatar"
-                  placeholder="avatar"
-                  value={userData.avatar}
+                  id="userAvatar"
+                  placeholder="userAvatar"
+                  value={userData.userAvatar}
                   onChange={onChangeData}
                   required
                   className="mb-2 form-control"
@@ -62,7 +66,7 @@ const LoginForm = () => {
               >
                 Login
               </button>
-              {userData.avatar ? <img src={userData.avatar} /> : ""}
+              {userData.userAvatar ? <img src={userData.userAvatar} /> : ""}
             </form>
           </div>
         </section>

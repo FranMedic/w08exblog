@@ -11,6 +11,7 @@ const PostsID = ({ posts }) => {
 
       <h2>{posts.title}</h2>
       <p>{posts.body}</p>
+      <img src={posts.userAvatar} />
     </>
   );
 };
@@ -24,7 +25,7 @@ export const getStaticPaths = async () => {
   const posts = await response.json();
 
   const paths = posts.map((post) => ({
-    params: { id: "" + post.id },
+    params: { id: `${post.id}` },
   }));
 
   return { paths, fallback: true };
@@ -32,7 +33,7 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async ({ params: { id } }) => {
   const response = await fetch(
-    "https://isdi-blog-posts-api.herokuapp.com/posts/" + id
+    `https://isdi-blog-posts-api.herokuapp.com/posts/${id}`
   );
   const posts = await response.json();
 

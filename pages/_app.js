@@ -1,7 +1,7 @@
-import Layout from "Layout/Layout";
 import "../styles/global.css";
 import "bootstrap/dist/css/bootstrap.css";
 import { useEffect, useState } from "react";
+import Layout from "../Layout/Layout";
 import LoginForm from "../components/LoginForm";
 // This default export is required in a new `pages/_app.js` file.
 export default function MyApp({ Component, pageProps }) {

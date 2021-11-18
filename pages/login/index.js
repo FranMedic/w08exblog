@@ -1,4 +1,4 @@
-const { default: LoginForm } = require("@/components/LoginForm");
+import LoginForm from "../../components/LoginForm";
 
 const login = () => (
   <>

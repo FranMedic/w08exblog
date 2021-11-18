@@ -6,7 +6,7 @@ const CreatePostForm = () => {
     event.preventDefault();
     await fetch("https://isdi-blog-posts-api.herokuapp.com/posts", {
       method: "POST",
-      body: JSON.stringify({ ...postData, user }),
+      body: JSON.stringify({ ...postData, ...user }),
       headers: {
         "Content-Type": "application/json",
       },
