@@ -1,11 +1,10 @@
 import Header from "@/components/Header";
 
-const Layout = ({ children }) => {
-  return (
-    <>
-      <Header />;{children}
-    </>
-  );
-};
+const Layout = ({ children }) => (
+  <>
+    <Header />
+    {children}
+  </>
+);
 
 export default Layout;

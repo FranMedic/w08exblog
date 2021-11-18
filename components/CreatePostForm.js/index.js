@@ -2,15 +2,17 @@ import { useState } from "react";
 
 const CreatePostForm = () => {
   const postCreate = async (event) => {
+    const user = JSON.parse(localStorage.getItem("user"));
     event.preventDefault();
     await fetch("https://isdi-blog-posts-api.herokuapp.com/posts", {
       method: "POST",
-      body: JSON.stringify(postData),
+      body: JSON.stringify({ ...postData, user }),
       headers: {
         "Content-Type": "application/json",
       },
     });
   };
+
   const onChangeData = (event) => {
     setPostData({ ...postData, [event.target.id]: event.target.value });
   };

@@ -1,6 +1,4 @@
 import CreatePostForm from "@/components/CreatePostForm.js";
 
-const CreatePost = () => {
-  return <CreatePostForm />;
-};
+const CreatePost = () => <CreatePostForm />;
 export default CreatePost;
